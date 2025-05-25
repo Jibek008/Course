@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
-
-from django.conf.global_settings import AUTH_USER_MODEL
 from dotenv import load_dotenv
 
 
@@ -48,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'mysite',
     "phonenumber_field",
+    'nested_admin',
 
 ]
 
@@ -130,6 +129,7 @@ LANGUAGES = (
     ('en', 'English'),
     ('ru', 'Russia'),
 )
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 MODELTRANSLATION_LANGUAGES = ('ru', 'en')
 
 

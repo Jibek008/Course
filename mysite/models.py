@@ -24,7 +24,7 @@ class UserProfile(AbstractUser):
 
 
 class Network(models.Model):
-    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE, related_name='user_network')
     network_name = models.CharField(max_length=32)
     network_link = models.URLField()
 
@@ -42,7 +42,7 @@ class Category(models.Model):
 
 class Course(models.Model):
     course_name = models.CharField(max_length=100)
-    category =  models.ManyToManyField(Category)
+    category = models.ManyToManyField(Category, related_name='category_courses')
     description = models.TextField()
     price = models.PositiveSmallIntegerField()
     certificate_have = models.BooleanField()
@@ -63,7 +63,7 @@ class Course(models.Model):
 
 
 class Lesson(models.Model):
-    course = models.ForeignKey(Course,on_delete=models.CASCADE)
+    course = models.ForeignKey(Course,on_delete=models.CASCADE, related_name='lessons')
     lesson = models.CharField(max_length=64)
     video = models.FileField(upload_to='course_videos/',null=True,blank=True )
     document = models.FileField(upload_to='course_documents/', null=True, blank=True)

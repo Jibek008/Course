@@ -1,5 +1,6 @@
+
 from .models import Category, Course, Lesson, Exam, Option, Questions
-from modeltranslation.translator import TranslationOptions,register
+from modeltranslation.translator import register, TranslationOptions
 
 @register(Category)
 class CategoryTranslationOptions(TranslationOptions):
@@ -12,7 +13,7 @@ class CourseTranslationOptions(TranslationOptions):
 
 @register(Lesson)
 class LessonTranslationOptions(TranslationOptions):
-    fields = ('lesson_name',)
+    fields = ('lesson',)
 
 @register(Exam)
 class ExamTranslationOptions(TranslationOptions):
@@ -26,7 +27,7 @@ class OptionTranslationOptions(TranslationOptions):
 
 @register(Questions)
 class QuestionTranslationOptions(TranslationOptions):
-    fields = ('question_name',)
+    fields = ('questions_name',)
 
 
 
